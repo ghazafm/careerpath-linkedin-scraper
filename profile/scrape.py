@@ -449,4 +449,21 @@ def scrape_profile(driver, profile_url, visited_profiles):
 def extract_more_profiles(driver):
     """Extract 'More profiles for you' section URLs."""
     try:
-        # Locate the section with profiles similar to the
+        # Locate the section with profiles similar to the current one
+        profile_urls = get_object(driver, By.XPATH, "//a[@data-field='browsemap_card_click']")
+        
+        # If URLs are found, extract them
+        if profile_urls:
+            urls = profile_urls.get_attribute("href")
+            return urls
+        else:
+            raise NoSuchElementException("No 'More profiles for you' section found.")
+            
+    except NoSuchElementException as e:
+        print(f"Error: {e}. No profiles were found.")
+        return []
+    
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return []
+

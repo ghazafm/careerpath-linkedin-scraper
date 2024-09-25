@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from mock_profile_data import (mock_intro_data, mock_about_data, mock_experience_data, 
                                mock_education_data, mock_certificates_data, mock_volunteering_data)
-from scrape import scrape_profile
+from profile.scrape1 import scrape_profile
 
 class TestScrapeProfile(unittest.TestCase):
 

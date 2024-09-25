@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from helper import login, save_cookies, load_cookies
 from selenium import webdriver
-from scrape import scrape_profile, extract_more_profiles
+from profile.scrape1 import scrape_profile, extract_more_profiles
 
 def main():
     load_dotenv()
